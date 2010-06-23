@@ -1,0 +1,204 @@
+//** DEFAULT STYLES **//
+
+// Based on the work of:
+// Andy Clarke: http://forabeautifulweb.com/
+
+// Imports --------------------------------------------------------------*/
+
+@import base
+@import susy/reset
+
+/* Body --------------------------------------------------------------
+
+body
+  +serif-family
+  color: $base
+
+/* Links --------------------------------------------------------------
+
+a
+  &:link, &:visited
+    color: $alt
+  &:focus, &:hover, &:active
+    color: darken($alt, 5)
+    text-decoration: none
+  img
+    border: none
+
+/* Headings --------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+  img
+    margin: 0
+
+h1
+  +adjust-font-size-to(48px)
+  +trailer(1, 48px)
+
+h2
+  +adjust-font-size-to(32px)
+  +trailer(1, 32px)
+
+h3
+  +adjust-font-size-to(24px)
+  +trailer(1, 24px)
+
+h4
+  +adjust-font-size-to(18px)
+  +trailer(1, 18px)
+
+h5, h6
+  +trailer(1)
+  font-weight: bold
+
+/* Text --------------------------------------------------------------
+
+cite, em, dfn
+  font-style: italic
+
+strong, dfn
+  font-weight: bold
+
+sup, sub
+  line-height: 0
+
+abbr, acronym
+  border-bottom: 1px dotted
+  cursor: help
+
+address
+  +trailer
+  font-style: italic
+
+ins
+  text-decoration: underline
+
+del
+  text-decoration: line-through
+
+pre, code, tt
+  margin: $base-rhythm-unit
+    left: -$base-rhythm-unit
+  padding-left: $base-rhythm-unit
+  border-left: 1px dotted
+  +monospace-family
+
+pre
+  white-space: pre
+
+code
+  display: block
+
+q
+  font-style: italic
+  em
+    font-style: normal
+
+p
+  +trailer
+
+blockquote, q
+  quotes: "" ""
+
+blockquote
+  margin: $base-rhythm-unit
+    left: -$base-rhythm-unit
+  padding-left: $base-rhythm-unit
+  border-left: 1px solid
+  +serif-family
+  font-style: italic
+
+blockquote, q
+  &:before, &:after
+    content: ""
+
+/* Replaced --------------------------------------------------------------
+
+img
+  vertical-align: bottom
+
+/* Lists --------------------------------------------------------------
+
+=list-default($ol: false)
+  margin: 0 $base-rhythm-unit $base-rhythm-unit 0
+  @if $ol
+    list-style: decimal
+  @else
+    list-style: disc
+
+=no-style-list
+  +no-bullets
+  margin: 0
+  padding: 0
+
+ol
+  +list-default(ol)
+
+ul
+  +list-default
+
+li
+  ul, ol
+    list-style-type: circle
+    margin: 0 $base-rhythm-unit $base-rhythm-unit * 0.5
+
+dl
+  +trailer
+  +leading-border(1px)
+  dt
+    +adjust-font-size-to(18px)
+    +trailer(0.5, 18px)
+
+dd
+  +trailer
+  +trailing-border(1px)
+
+/* Tables --------------------------------------------------------------
+/* tables still need 'cellspacing="0"' in the markup
+
+table
+  +trailer
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0
+
+table, td, th
+  vertical-align: top
+
+th, thead th
+  font-weight: bold
+
+th, td, caption
+  padding: $base-rhythm-unit * 0.5
+  text-align: left
+  font-weight: normal
+
+th, td
+  +trailing-border(1px, 0.5)
+
+tfoot
+  +adjust-font-size-to(14px)
+
+caption
+  +adjust-font-size-to(24px)
+  +trailer(1, 24px)
+
+/* Forms --------------------------------------------------------------
+
+fieldset
+  +trailer
+  +rhythm-borders(1px)
+
+legend
+  +adjust-font-size-to(18px)
+  font-weight: bold
+
+label
+  font-weight: bold
+
+textarea, input:not([type="radio"])
+  // box-sizing will help us control the width of inputs
+  // which are otherwise very hard to manage in the grid.
+  +box-sizing(border-box)
+  width: 100%
